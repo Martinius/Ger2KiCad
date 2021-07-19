@@ -40,8 +40,8 @@ class Polygon:
 
 MODE = r"(Mode):\s([a-z]{1,})"
 SCALE = r"(Scale) Factor:\sX:\s(\d+\.\d+|\d+)\sY:\s(\d+\.\d+|\d+)"
-COOR = r"(Coordinate Statement):\s([X,Y]):\s(-?\d+\.\d+|\d+)\s(?:(Y):\s"+\
-        "(-?\d+\.\d+|\d+))?.{1,}Lights\s(On|Off)"
+COOR = r"(Coordinate Statement):\s([X,Y]):\s(-?\d+\.\d+|-?\d+)\s(?:(Y):\s"+\
+        "(-?\d+\.\d+|-?\d+))?.{1,}Lights\s(On|Off)"
 RMStmtStart = r"(RegionModeStmt) type=RegionMode units=(metric|inch) mode=(on)"
 RMStmtStop = r"(RegionModeStmt) type=RegionMode units=(metric|inch) mode=(off)"
 EOF = r"EOF Statement"
