@@ -4,4 +4,8 @@ A simple python script to convert Gerber files (RS274X) to .kicad_mod files that
 
 This script was mainly designed to import RF structures in KiCad, but should handle all polygon based designs (Uses G36/G37 codes of the RS274X standard).
 
+Example:
+
+python Ger2KiCad.py BP.ger
+
 This script uses the [pcb-tools](https://github.com/curtacircuitos/pcb-tools) package. 

@@ -12,6 +12,8 @@
 import gerber
 import re
 import numpy as np
+import sys
+import os
 ##############################################################################
  #                              Define Classes                               #
 ##############################################################################
@@ -237,14 +239,19 @@ def create_kicad_mod(name,polygons,libary="Default",tedit="5EF5C08B"):
 ##############################################################################
 
 
+if len(sys.argv) != 2:
+    print("Wrong number of arguments")
+    exit()
+
+filename = os.path.splitext(sys.argv[1])[0]
 
 
-poly=readGerber('BP.ger')
+poly=readGerber(filename+'.gbr')
 x_c,y_c = find_center(poly)
 kicad_poly = create_kicad_poly(poly,x_c,y_c,layer="F.Cu")
-output=create_kicad_mod("BP",kicad_poly)
+output=create_kicad_mod(filename,kicad_poly)
 
-f= open("BP.kicad_mod","w+")
+f= open(filename+".kicad_mod","w+")
 f.write(output)
 f.close()
 
