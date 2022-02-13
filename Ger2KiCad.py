@@ -243,11 +243,13 @@ if len(sys.argv) != 2:
     print("Wrong number of arguments")
     exit()
 
-filename = os.path.splitext(sys.argv[1])[0]
+filename = sys.argv[1]
 
 
-poly=readGerber(filename+'.gbr')
+poly=readGerber(filename)
 x_c,y_c = find_center(poly)
+
+
 kicad_poly = create_kicad_poly(poly,x_c,y_c,layer="F.Cu")
 output=create_kicad_mod(filename,kicad_poly)
 
